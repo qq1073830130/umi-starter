@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>title</title>
+  <script>
+    if ('test'.padStart) {
+      console.log(' env: es6+', '\n', 'publicPath: <%= context.publicPath %>')
+    } else {
+      document.write('<script src="https://cdn.bootcss.com/babel-polyfill/7.0.0-rc.4/polyfill.js"><\/script>')
+    }
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>

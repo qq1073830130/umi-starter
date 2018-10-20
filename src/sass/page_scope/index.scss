@@ -1,0 +1,18 @@
+body {
+  padding: $space-m $space-lg;
+  background-color: #fff;
+}
+
+a {
+  font-size: 20px;
+  display: inline-block;
+}
+
+h2 {
+  line-height: 2;
+  border: 0 dashed $b-border;
+  border-width: 1px 0 1px 0;
+  margin-top: $space-big;
+  margin-bottom: $space-m;
+  
+}
