@@ -37,7 +37,7 @@ module.exports = {
     indent: ['error', 2],
     //只能够使用单引号
     quotes: ['error', 'single'],
-    semi: ['error', 'never'],
+    'semi': ["error", "always"],
     /* 这些规则与 JavaScript 代码中可能的语法错误或逻辑错误有关 */
 
     // 禁止 for 循环出现方向错误的循环，比如 for (i = 0; i < 10; i--)

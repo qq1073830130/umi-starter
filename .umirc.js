@@ -1,9 +1,7 @@
 // ref: https://umijs.org/config/
 import path from 'path'
-
-function resolve(dir) {
-  return path.join(__dirname, './', dir)
-}
+import webpackConf from './config/webpack.config'
+import routeConf from './config/router.config';
 
 /* 清除console */
 let extraBabelItem = []
@@ -17,6 +15,7 @@ export default {
   outputPath: './dist/static',
   theme: { '@primary-color': 'red' },
   hash: true,
+  routes: routeConf,
   sass: {
     data: '@import "~@/sass/_base/index.scss";'
   },
@@ -25,12 +24,7 @@ export default {
     BASE_URL: 'www.baidu.com'
   },
   alias: {
-    '@': resolve('src'),
-    '~components': resolve('src/components'),
-    '~common': resolve('src/common'),
-    '~pages': resolve('src/pages'),
-    '~models': resolve('src/models'),
-    '~assets': resolve('src/assets'),
+    '@': path.join(__dirname, './src'),
   },
   "proxy": {
     // "/api": {
@@ -39,39 +33,34 @@ export default {
     //   "pathRewrite": { "^/api" : "" }
     // }
   },
-  browserslist: ['last 20 version', 'Android > 4.0', 'not ie <= 8'],
-  extraBabelPlugins: [].concat(extraBabelItem),
-  chainWebpack(config, { webpack }) {
-    /* 包分析 */
-    if (process.env.NODE_ENV === 'production') {
-      const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-        .BundleAnalyzerPlugin
-      const CompressionWebpackPlugin = require('compression-webpack-plugin')
-
-      /* build包分析 */
-      process.env.ANALYZER === 'true' &&
-        config.plugin('webpack-bundle-analyzer').use(BundleAnalyzerPlugin)
-
-      /* gzip */
-      process.env.GZIP === 'true' &&
-        config.plugin('compression').use(CompressionWebpackPlugin, [
-          {
-            algorithm: 'gzip',
-            test: /\.(js|css)$/,
-            threshold: 10240,
-            minRatio: 0.8
-          }
-        ])
-    }
+  externals: {
+    // '包名': '用于访问的全局变量名',
+    // "react": "window.React",
+    // "react-dom": "window.ReactDOM"
   },
+  targets: {
+    android: 4,
+    ios: 7
+  },
+  // targets: {
+  //   ie: 9,
+  // },
+  // browserslist: ['last 20 version', 'Android > 4.0', 'not ie <= 8'],
+  extraBabelPlugins: [].concat(extraBabelItem),
+  chainWebpack: webpackConf,
+  ignoreMomentLocale: true,
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     [
       'umi-plugin-react',
       {
         antd: true,
-        dva: true,
-        dynamicImport: true,
+        dva: {
+          hmr: true,
+        },
+        dynamicImport: {
+          loadingComponent: './components/PageLoading/index',
+        },
         dll: true,
         routes: {
           exclude: []

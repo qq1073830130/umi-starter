@@ -19,9 +19,6 @@
     border-radius: $radius;
   }
 }
-button {
-  @include active-bg;
-}
 
 //圆角半径
 @mixin border-radius($radius: $default-border-radius) {

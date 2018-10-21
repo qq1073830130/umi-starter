@@ -13,7 +13,8 @@
 <br>
 
 ```js
-yarn add babel-plugin-transform-remove-console compression-webpack-plugin eslint-plugin-html eslint-plugin-react eslint-plugin-vue node-sass sass-loader webpack-bundle-analyzerbabel-plugin-transform-remove-console compression-webpack-plugin eslint-plugin-html eslint-plugin-react eslint-plugin-vue node-sass sass-loader webpack-bundle-analyzer --dev
+yarn add babel-plugin-transform-remove-console compression-webpack-plugin eslint-plugin-html eslint-plugin-react eslint-plugin-vue node-sass sass-loader cross-env --dev
+yard add rc-queue-anim mockjs
 ```
 
 <br>
