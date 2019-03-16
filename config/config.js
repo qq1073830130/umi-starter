@@ -1,7 +1,7 @@
 // ref: https://umijs.org/config/
 import path from 'path'
-import webpackConf from './config/webpack.config'
-import routeConf from './config/router.config';
+import webpackConf from './webpack.config'
+import routeConf from './router.config';
 
 /* 清除console */
 let extraBabelItem = []

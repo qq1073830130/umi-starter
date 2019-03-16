@@ -40,6 +40,5 @@
     "node": ">=8.0.0"
   },
   "dependencies": {
-    "rc-queue-anim": "^1.6.6"
   }
 }
