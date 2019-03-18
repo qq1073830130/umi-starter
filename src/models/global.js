@@ -7,6 +7,9 @@ export default {
     signIn: false
   },
   reducers: {
+    setState(state, { type, ...payload }) {
+      return { ...state, ...payload };
+    },
     statusChange(state) {
       return { ...state, signIn: !state.signIn };
     },

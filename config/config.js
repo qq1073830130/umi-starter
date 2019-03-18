@@ -14,6 +14,7 @@ export default {
   publicPath: '/static/',
   outputPath: './dist/static',
   theme: { '@primary-color': 'red' },
+  treeShaking: true,
   hash: true,
   routes: routeConf,
   sass: {
@@ -33,6 +34,7 @@ export default {
     //   "pathRewrite": { "^/api" : "" }
     // }
   },
+  /* 不参与webpack打包的包 */
   externals: {
     // '包名': '用于访问的全局变量名',
     // "react": "window.React",
@@ -45,7 +47,9 @@ export default {
   // targets: {
   //   ie: 9,
   // },
-  // browserslist: ['last 20 version', 'Android > 4.0', 'not ie <= 8'],
+  autoprefixer: {
+    browsers: ['last 7 version', 'Android >= 4.0', 'not ie <= 11'],
+  },
   extraBabelPlugins: [].concat(extraBabelItem),
   chainWebpack: webpackConf,
   ignoreMomentLocale: true,
@@ -65,11 +69,11 @@ export default {
         routes: {
           exclude: []
         },
-        hardSource: false,
         title: {
           defaultTitle: 'app'
         },
-        fastClick: true
+        // chunks: ['app'],
+        // fastClick: true
       }
     ]
   ]
