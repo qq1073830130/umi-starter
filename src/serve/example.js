@@ -1,5 +1,5 @@
 import { stringify } from 'qs';
-import request from '../utils/request';
+import request from '../common/request';
 
 /**
  * 基本格式
