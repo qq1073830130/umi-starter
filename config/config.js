@@ -63,6 +63,7 @@ export default {
           hmr: true,
         },
         dynamicImport: {
+          webpackChunkName: true,
           loadingComponent: './components/PageLoading/index',
         },
         dll: true,

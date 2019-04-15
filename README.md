@@ -1,4 +1,7 @@
 # umi-starter
+
+[github](https://github.com/qq1073830130)
+
 标准umi启动配置，用于快速的启动一个umi项目。
 包含开发中可能会用到的配置项和一套初始配置，并且整合了build时移除console、gzip、构建包内容分析等常用功能。
 
